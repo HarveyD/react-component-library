@@ -10,7 +10,9 @@
   "description": "A skeleton for your React Component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -36,13 +38,20 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
     "@types/react": "^16.9.12",
+    "babel-loader": "^8.0.6",
     "rollup": "^1.27.4",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.25.2",
+    "sass-loader": "^8.0.0",
     "typescript": "^3.7.2"
   }
 }
