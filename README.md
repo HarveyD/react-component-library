@@ -1,6 +1,13 @@
 # React Component Library
 
-This project skeleton was created to help people get started with creating their own React component library using Rollup, Sass, Typescript and Storybook. 
+This project skeleton was created to help people get started with creating their own React component library using:
+- [Rollup](https://github.com/rollup/rollup)
+- [Sass](https://sass-lang.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+It also features:
+- :white_check_mark: [Storybook](https://storybook.js.org/) to help you create and show off your components
+- :white_check_mark: [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/) enable testing of the components
 
 [**Read my blog post about why and how I created this project skeleton ▸**](https://blog.harveydelaney.com/creating-your-own-react-component-library/)
 
