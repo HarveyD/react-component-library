@@ -9,7 +9,8 @@
     "jsx": "react",
     "declaration": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": ["src", "images.d.ts"],
   "exclude": ["node_modules", "build"]

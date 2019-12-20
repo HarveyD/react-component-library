@@ -7,10 +7,11 @@
   "files": [
     "build"
   ],
-  "description": "A skeleton for your React Component library using Rollup, TypeScript, Sass and Storybook",
+  "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch",
+    "test:once": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -33,7 +34,7 @@
     "url": "https://github.com/HarveyD/react-component-library/issues"
   },
   "homepage": "https://github.com/HarveyD/react-component-library#readme",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
@@ -43,8 +44,16 @@
     "@storybook/addon-links": "^5.2.6",
     "@storybook/addons": "^5.2.6",
     "@storybook/react": "^5.2.6",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.24",
     "@types/react": "^16.9.12",
     "babel-loader": "^8.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "rollup": "^1.27.4",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -52,6 +61,7 @@
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.25.2",
     "sass-loader": "^8.0.0",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
   }
 }
