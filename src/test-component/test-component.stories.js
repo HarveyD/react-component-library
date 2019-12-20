@@ -1,5 +1,5 @@
 import React from "react";
-import TestComponent from './test-component';
+import TestComponent from "./test-component";
 
 export default {
   title: "TestComponent"

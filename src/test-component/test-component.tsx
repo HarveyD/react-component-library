@@ -1,9 +1,9 @@
 import React from "react";
 
-import './test-component.scss';
+import "./test-component.scss";
 
 interface IProps {
-    theme: 'primary' | 'secondary';
+  theme: "primary" | "secondary";
 }
 
 const TestComponent: React.FC<IProps> = ({ theme }) => (
