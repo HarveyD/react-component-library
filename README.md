@@ -7,29 +7,46 @@ This project skeleton was created to help people get started with creating their
 
 It also features:
 - :white_check_mark: [Storybook](https://storybook.js.org/) to help you create and show off your components
-- :white_check_mark: [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/) enable testing of the components
+- :white_check_mark: [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/) enabling testing of the components
 
 [**Read my blog post about why and how I created this project skeleton ▸**](https://blog.harveydelaney.com/creating-your-own-react-component-library/)
 
 ## Development
 ### Testing
-`npm run test`
+```shell
+npm run test
+```
 
 ### Building
-`npm run build`
+```shell
+npm run build
+```
 
 ### Storybook
-`npm run storybook`
+```shell
+npm run storybook
+```
+
+### Installing component library locally
+Let's say you have another project (`test-app`) on your machine that you want to try installing the component library into without having to first publish the component library. In the `test-app` directory, you can run:
+```shell
+npm i --save ../react-component-library
+```
+which will install the local component library as a dependency in `test-app`. Your components can then be imported and used.
 
 ### Publishing
-`npm run publish`
+First make sure that you've updated the `name` field in `package.json` to reflect your NPM package name in your private or public NPM registry. Then run:
+
+```shell
+npm publish
+```
 
 ## Component Usage
-Let's say you created a public npm library called `harvey-component-library` with the `TestComponent` component created in this repository.
+Let's say you created a public NPM package called `harvey-component-library` with the `TestComponent` component created in this repository.
 
-Usage of the component (once published to the registry and then installed into another project) will be:
+Usage of the component (after the library installed as a dependency into another project) will be:
 
-```
+```javascript
 import React from "react";
 import { TestComponent } from "harvey-component-library";
 
