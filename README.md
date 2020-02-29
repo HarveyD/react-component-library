@@ -50,11 +50,12 @@ Usage of the component (after the library installed as a dependency into another
 import React from "react";
 import { TestComponent } from "harvey-component-library";
 
-const TestApp = () => (
-    <div className="app-container>
+const App = () => (
+    <div className="app-container">
+        <h1>Hello I'm consuming the component library</h1>
         <TestComponent theme="primary" />
     </div>
 );
 
-export TestApp;
+export default App;
 ```
