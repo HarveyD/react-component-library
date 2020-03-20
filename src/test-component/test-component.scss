@@ -1,16 +1,19 @@
+@import "../variables.scss";
+@import "../typography.scss";
+
 .test-component {
-  background-color: white;
-  border: 1px solid black;
+  background-color: $harvey-white;
+  border: 1px solid $harvey-black;
   padding: 16px;
   width: 360px;
   text-align: center;
 
   .heading {
-    font-size: 64px;
+    @include heading;
   }
 
   &.test-component-secondary {
-    background-color: black;
-    color: white;
+    background-color: $harvey-black;
+    color: $harvey-white;
   }
 }
