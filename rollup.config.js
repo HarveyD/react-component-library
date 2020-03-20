@@ -3,6 +3,7 @@ import resolve from "rollup-plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import sass from "rollup-plugin-sass";
 import commonjs from "rollup-plugin-commonjs";
+import copy from "rollup-plugin-copy";
 
 import packageJson from "./package.json";
 
@@ -25,7 +26,7 @@ export default {
     resolve({
       browser: true
     }),
-    typescript(),
+    typescript({ objectHashIgnoreUnknownHack: true }),
     commonjs({
       include: ["node_modules/**"],
       exclude: ["**/*.stories.js"],
@@ -41,6 +42,20 @@ export default {
     }),
     sass({
       insert: true
+    }),
+    copy({
+      targets: [
+        {
+          src: "src/variables.scss",
+          dest: "build",
+          rename: "variables.scss"
+        },
+        {
+          src: "src/typography.scss",
+          dest: "build",
+          rename: "typography.scss"
+        }
+      ]
     })
   ]
 };
