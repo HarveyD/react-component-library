@@ -15,7 +15,7 @@ describe("Test Component", () => {
   const renderComponent = () => render(<TestComponent {...props} />);
 
   describe("Snapshots", () => {
-    it("should have primary theme with default props", () => {
+    it("should have primary className with default props", () => {
       const { getByTestId } = renderComponent();
 
       const testComponent = getByTestId("test-component");
@@ -23,7 +23,7 @@ describe("Test Component", () => {
       expect(testComponent).toHaveClass("test-component-primary");
     });
 
-    it("should match snapshots as secondary themed", () => {
+    it("should have secondary className with theme set as secondary", () => {
       props.theme = "secondary";
       const { getByTestId } = renderComponent();
 
