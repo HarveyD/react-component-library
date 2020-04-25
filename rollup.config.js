@@ -8,7 +8,7 @@ import copy from "rollup-plugin-copy";
 import packageJson from "./package.json";
 
 export default {
-  input: "src/index.tsx",
+  input: "src/index.ts",
   output: [
     {
       file: packageJson.main,
@@ -23,23 +23,9 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve({
-      browser: true
-    }),
-    typescript({ objectHashIgnoreUnknownHack: true }),
-    commonjs({
-      include: ["node_modules/**"],
-      exclude: ["**/*.stories.js"],
-      namedExports: {
-        "node_modules/react/react.js": [
-          "Children",
-          "Component",
-          "PropTypes",
-          "createElement"
-        ],
-        "node_modules/react-dom/index.js": ["render"]
-      }
-    }),
+    resolve(),
+    commonjs(),
+    typescript({ useTsconfigDeclarationDir: true }),
     sass({
       insert: true
     }),
