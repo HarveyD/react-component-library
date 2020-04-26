@@ -53,7 +53,9 @@ This will generate:
     YourComponentName.scss
 ```
 
-The default templates for each file can be modified under `util/templates`;
+The default templates for each file can be modified under `util/templates`.
+
+Don't forget to add the component to your `index.ts` exports if you want the library to export the component!
 
 ### Installing Component Library Locally
 

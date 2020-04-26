@@ -1,8 +1,8 @@
 import React from "react";
 
-import { TestComponentProps } from "./test-component.types";
+import { TestComponentProps } from "./TestComponent.types";
 
-import "./test-component.scss";
+import "./TestComponent.scss";
 
 const TestComponent: React.FC<TestComponentProps> = ({ theme }) => (
   <div
