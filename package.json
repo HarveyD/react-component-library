@@ -51,6 +51,8 @@
     "babel-preset-react-app": "^9.1.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "rollup": "^1.27.4",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
