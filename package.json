@@ -9,8 +9,8 @@
   "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
     "build": "rollup -c",
-    "test": "jest --watch",
-    "test:once": "jest",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
     "generate": "node ./util/create-component"
