@@ -8,8 +8,8 @@ This project skeleton was created to help people get started with creating their
 
 It also features:
 
-- :white_check_mark: [Storybook](https://storybook.js.org/) to help you create and show off your components
-- :white_check_mark: [Jest](https://jestjs.io/) and [React Testing Library](https://github.com/testing-library/react-testing-library) enabling testing of the components
+- [Storybook](https://storybook.js.org/) to help you create and show off your components
+- [Jest](https://jestjs.io/) and [React Testing Library](https://github.com/testing-library/react-testing-library) enabling testing of the components
 
 [**Read my blog post about why and how I created this project skeleton ▸**](https://blog.harveydelaney.com/creating-your-own-react-component-library/)
 
@@ -33,7 +33,29 @@ npm run build
 npm run storybook
 ```
 
-### Installing component library locally
+### Generating New Components
+
+I've included a handy NodeJS util file under `util` called `create-component.js`. Instead of copy pasting components to create a new component, you can instead run this command to generate all the files you need to start building out a new component. To use it:
+
+```shell
+npm run YourComponentName
+```
+
+This will generate:
+
+```shell
+/src
+  /YourComponentName
+    YourComponentName.tsx
+    YourComponentName.stories.tsx
+    YourComponentName.test.tsx
+    YourComponentName.types.ts
+    YourComponentName.scss
+```
+
+The default templates for each file can be modified under `util/templates`;
+
+### Installing Component Library Locally
 
 Let's say you have another project (`test-app`) on your machine that you want to try installing the component library into without having to first publish the component library. In the `test-app` directory, you can run:
 
@@ -41,9 +63,19 @@ Let's say you have another project (`test-app`) on your machine that you want to
 npm i --save ../react-component-library
 ```
 
-which will install the local component library as a dependency in `test-app`. Your components can then be imported and used.
+which will install the local component library as a dependency in `test-app`. It'll then appear as a dependency in `package.json` like:
 
-### Publishing
+```json
+  "dependencies": {
+    ...
+    "react-component-library": "file:../react-component-library",
+    ...
+  },
+```
+
+Your components can then be imported and used in that project.
+
+## Publishing
 
 First make sure that you've updated the `name` field in `package.json` to reflect your NPM package name in your private or public NPM registry. Then run:
 
@@ -51,7 +83,7 @@ First make sure that you've updated the `name` field in `package.json` to reflec
 npm publish
 ```
 
-## Component Usage
+### Component Usage
 
 Let's say you created a public NPM package called `harvey-component-library` with the `TestComponent` component created in this repository.
 
@@ -71,7 +103,7 @@ const App = () => (
 export default App;
 ```
 
-## Using internal SASS variables
+### Using Internal SASS Variables
 
 I've found that it's helpful to export SASS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the `typography.scss` and `variables.scss` into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
 
