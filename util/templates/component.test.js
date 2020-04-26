@@ -17,12 +17,13 @@ describe("Test Component", () => {
 
   const renderComponent = () => render(<${componentName} {...props} />);
 
-  it("should have primary className with default props", () => {
+  it("should render foo text correctly", () => {
+    props.foo = "harvey was here";
     const { getByTestId } = renderComponent();
 
-    const testComponent = getByTestId("test-component");
+    const component = getByTestId("${componentName}");
 
-    expect(testComponent).toHaveClass("test-component-primary");
+    expect(component).toHaveTextContent("harvey was here");
   });
 });
 `,

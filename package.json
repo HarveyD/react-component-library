@@ -13,7 +13,7 @@
     "test:once": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "create-component": "node ./util/create-component"
+    "generate": "node ./util/create-component"
   },
   "repository": {
     "type": "git",
