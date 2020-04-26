@@ -43,6 +43,8 @@ To export your Storybook as static files:
 npm run storybook:export
 ```
 
+You can then serve the files under `storybook-static` using S3, GitHub pages, Express etc. I've hosted this library at: https://www.harveydelaney.com/react-component-library
+
 ### Generating New Components
 
 I've included a handy NodeJS util file under `util` called `create-component.js`. Instead of copy pasting components to create a new component, you can instead run this command to generate all the files you need to start building out a new component. To use it:

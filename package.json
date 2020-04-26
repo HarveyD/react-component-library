@@ -40,6 +40,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
     "@storybook/react": "^5.3.18",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
@@ -50,9 +52,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "rollup": "^1.27.4",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.3.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.27.0",
