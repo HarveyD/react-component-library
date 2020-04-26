@@ -29,8 +29,16 @@ npm run build
 
 ### Storybook
 
+To run a live-reload Storybook server on your local machine:
+
 ```shell
 npm run storybook
+```
+
+To export your Storybook as static files:
+
+```shell
+npm run storybook:export
 ```
 
 ### Generating New Components
