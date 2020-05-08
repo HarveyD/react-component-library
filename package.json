@@ -30,7 +30,7 @@
     "Storybook"
   ],
   "author": "Harvey Delaney",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/HarveyD/react-component-library/issues"
   },
