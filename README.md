@@ -19,13 +19,13 @@ It also features:
 
 ### Testing
 
-```shell
+```
 npm run test
 ```
 
 ### Building
 
-```shell
+```
 npm run build
 ```
 
@@ -33,13 +33,13 @@ npm run build
 
 To run a live-reload Storybook server on your local machine:
 
-```shell
+```
 npm run storybook
 ```
 
 To export your Storybook as static files:
 
-```shell
+```
 npm run storybook:export
 ```
 
@@ -49,13 +49,13 @@ You can then serve the files under `storybook-static` using S3, GitHub pages, Ex
 
 I've included a handy NodeJS util file under `util` called `create-component.js`. Instead of copy pasting components to create a new component, you can instead run this command to generate all the files you need to start building out a new component. To use it:
 
-```shell
+```
 npm run generate YourComponentName
 ```
 
 This will generate:
 
-```shell
+```
 /src
   /YourComponentName
     YourComponentName.tsx
@@ -73,37 +73,41 @@ Don't forget to add the component to your `index.ts` exports if you want the lib
 
 Let's say you have another project (`test-app`) on your machine that you want to try installing the component library into without having to first publish the component library. In the `test-app` directory, you can run:
 
-```shell
+```
 npm i --save ../react-component-library
 ```
 
 which will install the local component library as a dependency in `test-app`. It'll then appear as a dependency in `package.json` like:
 
-```json
+```JSON
+  ...
   "dependencies": {
     ...
     "react-component-library": "file:../react-component-library",
     ...
   },
+  ...
 ```
 
 Your components can then be imported and used in that project.
 
 ## Publishing
 
-First make sure that you've updated the `name` field in `package.json` to reflect your NPM package name in your private or public NPM registry. Then run:
+First, make sure you have an NPM account and are [logged into NPM using the `npm login` command.](https://docs.npmjs.com/creating-a-new-npm-user-account)
 
-```shell
+Then update the `name` field in `package.json` to reflect your NPM package name in your private or public NPM registry. Then run:
+
+```
 npm publish
 ```
 
-### Component Usage
+## Consuming
 
 Let's say you created a public NPM package called `harvey-component-library` with the `TestComponent` component created in this repository.
 
 Usage of the component (after the library installed as a dependency into another project) will be:
 
-```javascript
+```TSX
 import React from "react";
 import { TestComponent } from "harvey-component-library";
 
@@ -123,7 +127,7 @@ I've found that it's helpful to export SASS variables to projects consuming the 
 
 For example, let's say you installed `harvey-component-library` into your project. To use the exported variables/mixins, in a SASS file you would do the following:
 
-```sass
+```Sass
 @import '~harvey-component-library/build/typography';
 
 .example-container {
