@@ -1,6 +1,7 @@
 require("colors");
 const fs = require("fs");
 const templates = require("./templates");
+const addToIndex = require('./add-to-index')
 
 const componentName = process.argv[2];
 
@@ -31,4 +32,10 @@ generatedTemplates.forEach((template) => {
 
 console.log(
   "Successfully created component under: " + componentDirectory.green
+);
+
+addToIndex(componentName)
+
+console.log(
+  "Successfully added " + componentName.cyan + " to: " + "./src/index.ts".green
 );
