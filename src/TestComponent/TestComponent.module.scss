@@ -1,0 +1,31 @@
+@import '../scss/variables';
+@import '../scss/typography';
+
+.testComponent {
+  padding: 16px;
+  width: 360px;
+  text-align: center;
+
+  color: $ink;
+  background-color: $chalk;
+  border: 1px solid $ink;
+
+  .heading {
+    @include heading;
+  }
+
+  &.brand {
+    color: $chalk;
+    background-color: $brand;
+  }
+
+  &.light {
+    color: $chalk;
+    background-color: $lightAccent;
+  }
+
+  &.dark {
+    color: $chalk;
+    background-color: $darkAccent;
+  }
+}

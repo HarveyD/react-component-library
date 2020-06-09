@@ -6,61 +6,105 @@
   "files": [
     "build"
   ],
-  "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
+  "licence": "MIT",
+  "description": "A skeleton to create your own React component library using Rollup, Sass Modules, TypeScript, Google Typescript Style, React Cosmos and Jest",
   "scripts": {
-    "build": "rollup -c",
+    "cosmos": "cosmos",
+    "cosmos:export": "cosmos-export",
+    "build": "yarn clean && rollup --config config/rollup.config.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "storybook": "start-storybook -p 6006",
-    "storybook:export": "build-storybook",
-    "generate": "node ./util/create-component",
-    "prepublishOnly": "npm run build"
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "lint": "run-p lint:**",
+    "lint:javascript": "gts fix",
+    "lint:others": "prettier --write --loglevel warn '**/*.{json,md,yml}'",
+    "lint:styles": "stylelint --fix 'src/**/*.{css,scss}'",
+    "prepare": "yarn compile",
+    "pretest": "yarn compile",
+    "posttest": "yarn check"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HarveyD/react-component-library.git"
+    "url": "git+https://github.com/barb-components/react-component-library.git"
   },
   "keywords": [
+    "Google Typescript Style",
     "React",
     "Component",
     "Library",
     "Rollup",
     "Typescript",
     "Sass",
-    "Storybook"
+    "Sass Modules",
+    "Cosmos"
   ],
-  "author": "Harvey Delaney",
+  "author": "Andy Weir <andy@ocean-internet.co.uk>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/HarveyD/react-component-library/issues"
-  },
-  "homepage": "https://github.com/HarveyD/react-component-library#readme",
+  "contributors": [
+    "Harvey Delaney"
+  ],
+  "homepage": "https://github.com/barb-components/react-component-library#readme",
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@rollup/plugin-commonjs": "^11.1.0",
-    "@rollup/plugin-node-resolve": "^7.1.3",
-    "@storybook/react": "^5.3.18",
-    "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^10.0.2",
-    "@types/jest": "^24.0.24",
-    "@types/react": "^16.9.12",
+    "@babel/core": "^7.10.2",
+    "@babel/helper-create-regexp-features-plugin": "^7.10.1",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.1",
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^10.2.1",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^14.0.12",
+    "@types/react": "^16.9.35",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
+    "confusing-browser-globals": "^1.0.9",
+    "css-loader": "^3.5.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.21.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "gts": "^2.0.2",
+    "html-webpack-plugin": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.9.0",
+    "jest": "^26.0.1",
+    "normalize.css": "^8.0.1",
+    "npm-run-all": "^4.1.5",
+    "pkg-dir": "^4.2.0",
+    "pre-commit": "^1.2.2",
     "react": "^16.13.1",
+    "react-cosmos": "^5.3.0",
     "react-dom": "^16.13.1",
-    "rollup": "^1.27.4",
+    "rollup": "^2.15.0",
     "rollup-plugin-copy": "^3.3.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-typescript2": "^0.27.0",
-    "sass-loader": "^8.0.0",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.2"
-  }
+    "rollup-plugin-typescript2": "^0.27.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.6.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5",
+    "webpack": "^4.43.0"
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
