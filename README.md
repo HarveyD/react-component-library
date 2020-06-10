@@ -36,6 +36,38 @@ To run a live-reload React Cosmos server on your local machine:
 yarn cosmos
 ```
 
+## Deploying to GitHub
+
+### [GitHub Access Token](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages#authenticating-to-github-packages)
+
+Authenticate by adding your personal access token to your `~/.npmrc` file, edit the `~/.npmrc` file for your project to include the following line, replacing `TOKEN` with your personal access token. Create a new `~/.npmrc` file if one doesn't exist.
+
+```bash
+//npm.pkg.github.com/:_authToken=TOKEN
+```
+
+### [Update the package version & publish](https://classic.yarnpkg.com/en/docs/cli/version/)
+
+Using the yarn version command you can update the version of your package via the command line.
+
+```bash
+yarn version --major | --minor | --patch
+```
+
+`preversion` & `postversion` entries in `package.json` lint, test, deploy and commit the package.
+
+```json
+{
+  "name": "example-package",
+  "version": "1.0.2",
+  "scripts": {
+    "test": "jest",
+    "preversion": "yarn lint & yarn test",
+    "postversion": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
+  }
+}
+```
+
 ## Consuming
 
 Let's say you created a public NPM package called `react-component-library` with the `TestComponent` component created in this repository.
