@@ -3,11 +3,11 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import copy from 'rollup-plugin-copy';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
-import sass from 'rollup-plugin-sass';
 import typescript from 'rollup-plugin-typescript2';
 
-import packageJson from '../package.json';
+const packageJson = require('../package.json');
 
 export default {
   input: 'src/index.ts',
@@ -23,14 +23,28 @@ export default {
       sourcemap: true,
     },
   ],
+  external: ['react', 'react-dom'],
   plugins: [
     progress({clearLine: false}),
     peerDepsExternal(),
     resolve(),
     commonjs(),
-    typescript({useTsconfigDeclarationDir: true}),
-    commonjs(),
-    sass({insert: true}),
+    postcss({
+      extract: false,
+      modules: true,
+      use: ['sass'],
+    }),
+    typescript({
+      useTsconfigDeclarationDir: true,
+      tsconfigOverride: {
+        exclude: [
+          '**/jest.setup.ts',
+          '**/AppFixture.tsx',
+          '**/*.test.*',
+          '**/*.fixture.*',
+        ],
+      },
+    }),
     copy({
       targets: [
         {

@@ -1,11 +1,12 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "build",
+    "declaration": true,
     "declarationDir": "build",
     "module": "esnext",
-    "lib": ["dom"],
+    "lib": ["esnext", "dom"],
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -16,8 +17,6 @@
     "node_modules",
     "build",
     "**/__mocks__/**/*",
-    "**/__snapshots__/**/*",
-    "**/*.fixture.*",
-    "**/*.test.*"
+    "**/__snapshots__/**/*"
   ]
 }
