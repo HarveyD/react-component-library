@@ -5,7 +5,7 @@ import typescript from "rollup-plugin-typescript2";
 import sass from "rollup-plugin-sass";
 import copy from "rollup-plugin-copy";
 
-import packageJson from "./package.json";
+const packageJson = require("./package.json");
 
 export default {
   input: "src/index.ts",

@@ -6,6 +6,7 @@
   "files": [
     "build"
   ],
+  "types": "build/index.d.ts",
   "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
     "build": "rollup -c",
