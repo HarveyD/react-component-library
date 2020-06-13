@@ -102,7 +102,7 @@ Then update the `name` field in `package.json` to reflect your NPM package name 
 npm publish
 ```
 
-## Consuming
+## Usage
 
 Let's say you created a public NPM package called `harvey-component-library` with the `TestComponent` component created in this repository.
 
@@ -122,7 +122,9 @@ const App = () => (
 export default App;
 ```
 
-### Using Internal SASS Variables
+[Check out this Code Sandbox for a live example.](https://codesandbox.io/s/harvey-component-library-example-y2b60?file=/src/App.js)
+
+### Using Component Library SASS Variables
 
 I've found that it's helpful to export SASS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the `typography.scss` and `variables.scss` into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
 
