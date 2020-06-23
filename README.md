@@ -110,16 +110,18 @@ The `"prepublishOnly": "npm run build"` script in `package.json` will execute be
 
 I recommend you host the component library using NPM. However, if you don't want to use NPM, you can use GitHub to host it instead.
 
-You'll need to remove `build/` from `.gitignore`, build the component library (`npm run build`), add, commit and push the contents of `build`.
+You'll need to remove `build/` from `.gitignore`, build the component library (`npm run build`), add, commit and push the contents of `build`. [See this branch for an example.](https://github.com/HarveyD/react-component-library/tree/host-via-github)
 
 You can then install your library into other projects by running:
 
 ```
-npm i --save git+https://github.com/HarveyD/react-component-library.git
+npm i --save git+https://github.com/HarveyD/react-component-library.git#branch-name
+```
 
 OR
 
-npm i --save git:harveyd/react-component-library
+```
+npm i --save github:harveyd/react-component-library#branch-name
 
 ```
 
