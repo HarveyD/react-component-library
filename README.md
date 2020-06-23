@@ -122,7 +122,6 @@ OR
 
 ```
 npm i --save github:harveyd/react-component-library#branch-name
-
 ```
 
 ## Usage
@@ -171,8 +170,8 @@ For example, let's say you installed `harvey-component-library` into your projec
 
 The Rollup plugin `rollup-plugin-postcss` supports Sass, Less and Stylus:
 
-- For Stylus, install stylus: yarn add stylus --dev
-- For Less, install less: yarn add less --dev
+- For Stylus, install stylus: `yarn add stylus --dev`
+- For Less, install less: `yarn add less --dev`
 
 You can then remove `node-sass` from your dependencies.
 
