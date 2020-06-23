@@ -94,12 +94,33 @@ Your components can then be imported and used in that project.
 
 ## Publishing
 
+### Hosting via NPM
+
 First, make sure you have an NPM account and are [logged into NPM using the `npm login` command.](https://docs.npmjs.com/creating-a-new-npm-user-account)
 
 Then update the `name` field in `package.json` to reflect your NPM package name in your private or public NPM registry. Then run:
 
 ```
 npm publish
+```
+
+The `"prepublishOnly": "npm run build"` script in `package.json` will execute before publish occurs, ensuring the `build/` directory and the compiled component library exist.
+
+### Hosting via GitHub
+
+I recommend you host the component library using NPM. However, if you don't want to use NPM, you can use GitHub to host it instead.
+
+You'll need to remove `build/` from `.gitignore`, build the component library (`npm run build`), add, commit and push the contents of `build`.
+
+You can then install your library into other projects by running:
+
+```
+npm i --save git+https://github.com/HarveyD/react-component-library.git
+
+OR
+
+npm i --save git:harveyd/react-component-library
+
 ```
 
 ## Usage
@@ -139,6 +160,33 @@ For example, let's say you installed `harvey-component-library` into your projec
     color: $harvey-white;
 }
 ```
+
+## Additional Help
+
+### Using Alternatives to Sass
+
+#### Less or Stylus
+
+The Rollup plugin `rollup-plugin-postcss` supports Sass, Less and Stylus:
+
+- For Stylus, install stylus: yarn add stylus --dev
+- For Less, install less: yarn add less --dev
+
+You can then remove `node-sass` from your dependencies.
+
+#### CSS Modules
+
+If you want to use CSS Modules, update `postcss` in `rollup-config.js` to:
+
+```
+postcss({
+  modules: true
+})
+```
+
+#### Styled Components
+
+If you want to use [`styled-components`](https://styled-components.com/), the changes required are a bit more involved. As such, I've created a branch where I've got `styled-components` working in this component library, [check it out here](https://github.com/HarveyD/react-component-library/tree/styled-components).
 
 ### Can I code split my components?
 
