@@ -195,4 +195,30 @@ Yes you can.
 
 [Read this section of my blog post](https://blog.harveydelaney.com/creating-your-own-react-component-library/#introducing-code-splitting-optional-) to find out how.
 
-Or check out [this commit](https://github.com/HarveyD/react-component-library/commit/94631be5a871f3b39dbc3e9bd3e75a8ae5b3b759) to see what changes are neccesary to implement it.
+Atlernatively, you can check out [this branch](https://github.com/HarveyD/react-component-library/tree/code-splitting) or [this commit](https://github.com/HarveyD/react-component-library/commit/94631be5a871f3b39dbc3e9bd3e75a8ae5b3b759) to see what changes are neccesary to implement it. Please note, there's an issue with code splitting and using `rollup-plugin-postcss`. I recommend using `rollup-plugin-sass` instead for code splitting.
+
+### Supporting images
+
+Add the following library to your component library [@rollup/plugin-image](https://github.com/rollup/plugins/tree/master/packages/image):
+
+```
+npm i -D @rollup/plugin-image
+```
+
+Then add it to `rollup-config.js`:
+
+```json
+plugins:[
+  ...,
+  image(),
+  ...
+]
+```
+
+You can then import and use images in your components like:
+
+```tsx
+import logo from "./rollup.png";
+
+export const ImageComponent = () => <div>{logo}</div>;
+```
