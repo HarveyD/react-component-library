@@ -38,7 +38,8 @@
   "homepage": "https://github.com/HarveyD/react-component-library#readme",
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
