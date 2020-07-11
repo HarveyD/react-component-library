@@ -189,17 +189,23 @@ postcss({
 
 If you want to use [`styled-components`](https://styled-components.com/), the changes required are a bit more involved. As such, I've created a branch where I've got `styled-components` working in this component library, [check it out here](https://github.com/HarveyD/react-component-library/tree/styled-components).
 
-### Can I code split my components?
+### Component Code Splitting
 
-Yes you can.
+Code splitting of your components is not supported by default.
 
-[Read this section of my blog post](https://blog.harveydelaney.com/creating-your-own-react-component-library/#introducing-code-splitting-optional-) to find out how.
+[Read this section of my blog post](https://blog.harveydelaney.com/creating-your-own-react-component-library/#introducing-code-splitting-optional-) to find out how and why you would enable code splitting of your components. In summary, code splitting enables users to import components in isolation like:
 
-Atlernatively, you can check out [this branch](https://github.com/HarveyD/react-component-library/tree/code-splitting) or [this commit](https://github.com/HarveyD/react-component-library/commit/94631be5a871f3b39dbc3e9bd3e75a8ae5b3b759) to see what changes are neccesary to implement it.
+```
+import TestComponent from 'harvey-component-library/build/TestComponent';
+```
 
-Please note, there's an issue with code splitting and using `rollup-plugin-postcss`. I recommend using `rollup-plugin-sass` instead for code splitting.
+This can reduce the bundle size for projects using older (CJS) module formats.
 
-### Supporting Images
+You can check out [this branch](https://github.com/HarveyD/react-component-library/tree/code-splitting) or [this commit](https://github.com/HarveyD/react-component-library/commit/94631be5a871f3b39dbc3e9bd3e75a8ae5b3b759) to see what changes are neccesary to implement it.
+
+Please note, there's an issue with code splitting and using `rollup-plugin-postcss`. I recommend using `rollup-plugin-sass` instead alongside code splitting.
+
+### Supporting Image Imports
 
 Add the following library to your component library [@rollup/plugin-image](https://github.com/rollup/plugins/tree/master/packages/image):
 
@@ -224,5 +230,39 @@ You can then import and render images in your components like:
 ```tsx
 import logo from "./rollup.png";
 
-export const ImageComponent = () => <div>{logo}</div>;
+export const ImageComponent = () => (
+  <div>
+    <img src={logo} />
+  </div>
+);
 ```
+
+### Supporting JSON Imports
+
+Add the following library to your component library [@rollup/plugin-json](https://github.com/rollup/plugins/tree/master/packages/json):
+
+```
+npm i -D @rollup/plugin-json
+```
+
+Then add it to `rollup-config.js`:
+
+```
+...
+plugins:[
+  ...,
+  json(),
+  ...
+]
+...
+```
+
+You can then import and use JSON as ES6 Modules:
+
+```tsx
+import data from "./some-data.json";
+
+export const JsonDataComponent = () => <div>{data.description}</div>;
+```
+
+Checkout the [official Rollup plugin list](https://github.com/rollup/plugins) for additional helpful plugins.
