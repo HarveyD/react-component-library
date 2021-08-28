@@ -150,7 +150,7 @@ export default App;
 
 ### Using Component Library SASS Variables
 
-I've found that it's helpful to export SASS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the `typography.scss` and `variables.scss` into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
+I've found that it's helpful to export SASS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the [`src/typography.scss`](src/typography.scss) and [`variables.scss`](src/variables.scss) into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
 
 For example, let's say you installed `harvey-component-library` into your project. To use the exported variables/mixins, in a SASS file you would do the following:
 
@@ -170,7 +170,7 @@ For example, let's say you installed `harvey-component-library` into your projec
 
 The example component `TestComponent` respects the user's dark mode operating system preferences and renders the component in the appropriate theme.
 
-This is achieved by using the media query: `@media (prefers-color-scheme: dark)` in combination with CSS variables. The colours that change depending on dark mode preference can be found in `src/variables.scss`. Example usage of these variables can be found within `src/TestComponent/TestComponent.scss`.
+This is achieved by using the media query: `@media (prefers-color-scheme: dark)` in combination with CSS variables. The colours that change depending on dark mode preference can be found in [`src/variables.scss`](src/variables.scss). Example usage of these variables can be found within [`src/TestComponent/TestComponent.scss`](src/TestComponent/TestComponent.scss).
 
 Read https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme for more details.
 
