@@ -1,34 +1,37 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, within } from "@testing-library/react";
 
 import TestComponent from "./TestComponent";
 import { TestComponentProps } from "./TestComponent.types";
 
-describe("Test Component", () => {
-  let props: TestComponentProps;
+describe("TestComponent", () => {
+  const renderComponent = ({ heading, content }: Partial<TestComponentProps>) =>
+    render(
+      <TestComponent
+        heading={heading || "Default heading text"}
+        content={content || <div>Default content</div>}
+      />
+    );
 
-  beforeEach(() => {
-    props = {
-      theme: "primary"
-    };
+  it("should render heading text correctly", () => {
+    const headingText = "Some test heading";
+
+    const { getByTestId } = renderComponent({ heading: headingText });
+
+    const testComponent = getByTestId("test-component__heading");
+
+    expect(testComponent).toHaveTextContent(headingText);
   });
 
-  const renderComponent = () => render(<TestComponent {...props} />);
+  it("should render content correctly", () => {
+    const { getByTestId } = renderComponent({
+      content: <div data-testid="some-test-content">I am test content</div>
+    });
 
-  it("should have primary className with default props", () => {
-    const { getByTestId } = renderComponent();
-
-    const testComponent = getByTestId("test-component");
-
-    expect(testComponent).toHaveClass("test-component-primary");
-  });
-
-  it("should have secondary className with theme set as secondary", () => {
-    props.theme = "secondary";
-    const { getByTestId } = renderComponent();
-
-    const testComponent = getByTestId("test-component");
-
-    expect(testComponent).toHaveClass("test-component-secondary");
+    expect(
+      within(getByTestId("test-component__content")).queryByTestId(
+        "some-test-content"
+      )
+    ).toBeInTheDocument();
   });
 });

@@ -166,6 +166,14 @@ For example, let's say you installed `harvey-component-library` into your projec
 
 ## Additional Help
 
+### Dark Mode
+
+The example component `TestComponent` respects the user's dark mode operating system preferences and renders the component in the appropriate theme.
+
+This is achieved by using the media query: `@media (prefers-color-scheme: dark)` in combination with CSS variables. The colours that change depending on dark mode preference can be found in `src/variables.scss`. Example usage of these variables can be found within `src/TestComponent/TestComponent.scss`.
+
+Read https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme for more details.
+
 ### Using Alternatives to Sass
 
 #### Less or Stylus

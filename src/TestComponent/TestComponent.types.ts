@@ -1,3 +1,6 @@
+import { ReactNode } from "react";
+
 export interface TestComponentProps {
-  theme: "primary" | "secondary";
+  heading: string;
+  content: ReactNode;
 }

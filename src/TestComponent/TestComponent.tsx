@@ -4,13 +4,12 @@ import { TestComponentProps } from "./TestComponent.types";
 
 import "./TestComponent.scss";
 
-const TestComponent: React.FC<TestComponentProps> = ({ theme }) => (
-  <div
-    data-testid="test-component"
-    className={`test-component test-component-${theme}`}
-  >
-    <h1 className="heading">I'm the test component</h1>
-    <h2>Made with love by Harvey</h2>
+const TestComponent: React.FC<TestComponentProps> = ({ heading, content }) => (
+  <div data-testid="test-component" className="test-component">
+    <h1 data-testid="test-component__heading" className="heading">
+      {heading}
+    </h1>
+    <div data-testid="test-component__content">{content}</div>
   </div>
 );
 
