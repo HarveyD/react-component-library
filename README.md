@@ -94,6 +94,28 @@ which will install the local component library as a dependency in `test-app`. It
 
 Your components can then be imported and used in that project.
 
+**NOTE**: After installing the component library locally, you may run into:
+
+```
+Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:
+
+You might have mismatching versions of React and the renderer (such as React DOM)
+You might be breaking the Rules of Hooks
+You might have more than one copy of React in the same app See for tips about how to debug and fix this problem.
+```
+
+This is the most commonly encountered problem people face when installing the library locally. This is most likely due to the third reason: `You might have more than one copy of React in the app`.
+
+Normally when a library is published, dev dependencies are excluded. However, when the library is symlinked, all local dev depdendencies are persisted in the libraries `node_modules` (includes React). Your bundler may see two versions of React, one in the consuming app and one in the symlinked library. The solution is to have the component library use the React version in the consuming app. So from your component library folder, run:
+
+```
+npm link ../test-app/node_modules/react
+```
+
+**OR**, if you are using Webpack in app you can follow [this GitHub comment](https://github.com/facebook/react/issues/13991#issuecomment-435587809).
+
+Read more about this issue [here](https://reactjs.org/warnings/invalid-hook-call-warning.html).
+
 ## Publishing
 
 ### Hosting via NPM
