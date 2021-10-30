@@ -82,7 +82,7 @@ npm i --save ../react-component-library
 
 which will install the local component library as a dependency in `test-app`. It'll then appear as a dependency in `package.json` like:
 
-```JSON
+```
   ...
   "dependencies": {
     ...
