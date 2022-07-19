@@ -1,7 +1,5 @@
 # React Component Library
 
-[![Build status](https://badge.buildkite.com/90ff98db996bb137c5be1bdce666c4b1ce68a25b17af0a6a04.svg?branch=master)](https://buildkite.com/harvey/react-component-library)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 This project skeleton was created to help people get started with creating their own React component library using:
 
@@ -14,7 +12,7 @@ It also features:
 - [Storybook](https://storybook.js.org/) to help you create and show off your components
 - [Jest](https://jestjs.io/) and [React Testing Library](https://github.com/testing-library/react-testing-library) enabling testing of the components
 
-[**Read my blog post about why and how I created this project skeleton ▸**](https://blog.harveydelaney.com/creating-your-own-react-component-library/)
+
 
 ## Development
 
@@ -44,7 +42,6 @@ To export your Storybook as static files:
 npm run storybook:export
 ```
 
-You can then serve the files under `storybook-static` using S3, GitHub pages, Express etc. I've hosted this library at: https://www.harveydelaney.com/react-component-library
 
 ### Generating New Components
 
@@ -104,13 +101,11 @@ npm publish
 
 ## Usage
 
-Let's say you created a public NPM package called `harvey-component-library` with the `TestComponent` component created in this repository.
 
 Usage of the component (after the library installed as a dependency into another project) will be:
 
 ```TSX
 import React from "react";
-import { TestComponent } from "harvey-component-library";
 
 const App = () => (
   <div className="app-container">
@@ -122,28 +117,8 @@ const App = () => (
 export default App;
 ```
 
-[Check out this Code Sandbox for a live example.](https://codesandbox.io/s/harvey-component-library-example-y2b60?file=/src/App.js)
 
-### Using Component Library SASS Variables
-
-I've found that it's helpful to export SASS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the `typography.scss` and `variables.scss` into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
-
-For example, let's say you installed `harvey-component-library` into your project. To use the exported variables/mixins, in a SASS file you would do the following:
-
-```Sass
-@import '~harvey-component-library/build/typography';
-
-.example-container {
-    @include heading;
-
-    color: $harvey-white;
-}
-```
 
 ### Can I code split my components?
 
 Yes you can.
-
-[Read this section of my blog post](https://blog.harveydelaney.com/creating-your-own-react-component-library/#introducing-code-splitting-optional-) to find out how.
-
-Or check out [this commit](https://github.com/HarveyD/react-component-library/commit/94631be5a871f3b39dbc3e9bd3e75a8ae5b3b759) to see what changes are neccesary to implement it.

@@ -1,6 +1,6 @@
 {
-  "name": "react-component-library",
-  "version": "1.0.0",
+  "name": "simplr-storybook-library",
+  "version": "3.0.0",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [
@@ -15,11 +15,12 @@
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
     "generate": "node ./util/create-component",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "chromatic": "npx chromatic --project-token=068db3c38ad7"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HarveyD/react-component-library.git"
+    "url": ""
   },
   "keywords": [
     "React",
@@ -30,12 +31,11 @@
     "Sass",
     "Storybook"
   ],
-  "author": "Harvey Delaney",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/HarveyD/react-component-library/issues"
+  "author": {
+    "name": "Johan"
   },
-  "homepage": "https://github.com/HarveyD/react-component-library#readme",
+  "license": "MIT",
+  "homepage": "",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
@@ -45,7 +45,8 @@
     "@babel/core": "^7.10.3",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
-    "@storybook/react": "^5.3.19",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",
     "@types/jest": "^24.0.24",
@@ -54,6 +55,7 @@
     "@types/styled-components": "^5.1.0",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
+    "chromatic": "^6.7.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "node-sass": "^4.14.1",
@@ -65,8 +67,17 @@
     "rollup-plugin-postcss": "^3.1.2",
     "rollup-plugin-typescript2": "^0.27.0",
     "sass-loader": "^8.0.0",
+    "styled-components": "^5.1.1",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.2",
-    "styled-components": "^5.1.1"
-  }
+    "webpack": "^5.73.0"
+  },
+  "dependencies": {
+    "@storybook/addon-docs": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-postcss": "^3.0.0-alpha.1",
+    "@storybook/builder-webpack5": "^6.5.9"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "simplr-storybook-library@2.0.0"
 }

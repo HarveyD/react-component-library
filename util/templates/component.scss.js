@@ -6,7 +6,7 @@ module.exports = (componentName) => ({
 .foo-bar {
   @include font-defaults;
 
-  color: $harvey-green;
+  color: $johan-green;
 }
 `,
   extension: `.scss`
