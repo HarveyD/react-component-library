@@ -21,38 +21,50 @@ export default {
 const Template: Story<StatsPaneProps> = (args) => <StatsPane {...args} />;
 storiesOf('StatsPane', module);
 
-export const HappyStatsPane = Template.bind({});
-HappyStatsPane.args = {
-  currentNumber: 123451,
+export const LargeStatsPane = Template.bind({});
+LargeStatsPane.args = {
+  currentNumber: 1234,
   title: 'StatsPane Title',
   label: 'Here goes the Label',
   previousNumber: 3,
   previousLabel: 'Previous Number',
   currentDirection: true,
   whiteBackground: true,
-  smallPane: true,
+  smallPane: false,
 };
 
-export const SadStatsPane = Template.bind({});
-SadStatsPane.args = {
+export const SmallStatsPane = Template.bind({});
+SmallStatsPane.args = {
   currentNumber: 2345,
   title: 'StatsPane Title',
   label: 'Here goes the Label',
   previousNumber: 3,
-  previousLabel: 'Previous Number',
   currentDirection: false,
-  smallPane: false,
+  smallPane: true,
 };
-export const SmallStatsPane = Template.bind({});
-SmallStatsPane.args = {
-  currentNumber: 12345671,
+
+
+export const LargeStatsPaneWithStars = Template.bind({});
+LargeStatsPaneWithStars.args = {
+  currentNumber: 123,
   title: 'StatsPane Title',
   label: 'Here goes the Label',
-  previousNumber: 3,
-  previousLabel: 'Previous Number',
   currentDirection: false,
   smallPane: false,
   whiteBackground: true,
+  stars: 4.5
+};
+
+
+export const SmallStatsPaneWithStars = Template.bind({});
+SmallStatsPaneWithStars.args = {
+  currentNumber: 456,
+  title: 'StatsPane Title',
+  label: 'Here goes the Label',
+  currentDirection: false,
+  smallPane: true,
+  whiteBackground: true,
+  stars:4
 };
 
 // [HappyStatsPane,SadStatsPane].map(story=>{ return story.decorators = [(Story) => <div style={{ width: 500, height: 350 }}><Story /></div>]})

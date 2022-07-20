@@ -25,6 +25,7 @@ const StatsPane: FC<StatsPaneProps> = ({
   previousNumber,
   previousLabel,
   currentDirection,
+  stars,
   ...props
 }) => {
   return (
@@ -32,7 +33,7 @@ const StatsPane: FC<StatsPaneProps> = ({
       <S.StatsPane $smallPane={smallPane}>
         <S.UpperBlock>
           <S.PaneHeader $smallPane={smallPane}>
-            <S.CurrentDayTitle >{title}</S.CurrentDayTitle>
+            <S.CurrentDayTitle>{title}</S.CurrentDayTitle>
           </S.PaneHeader>
           <S.TrendsBlock $smallPane={smallPane}>
             <S.CurrentDayNumber> {currentNumber}</S.CurrentDayNumber>
@@ -43,7 +44,14 @@ const StatsPane: FC<StatsPaneProps> = ({
           $whiteBackground={whiteBackground}
           $smallPane={smallPane}
         >
-          <S.StarsBlock>stars/number</S.StarsBlock>
+          {!smallPane &&previousLabel && <S.PreviousLabel>{previousLabel} </S.PreviousLabel>}
+          {previousNumber && (
+            <S.PreviousNumber $smallPane={smallPane}>
+              {smallPane&&"Previous:"}
+              {previousNumber}
+            </S.PreviousNumber>
+          )}
+          {stars && <S.StarsBlock>{stars}</S.StarsBlock>}
         </S.BottomBlock>
       </S.StatsPane>
     </S.StatsPaneWrapper>

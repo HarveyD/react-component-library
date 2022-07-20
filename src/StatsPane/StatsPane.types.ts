@@ -7,5 +7,6 @@ export interface StatsPaneProps {
     previousNumber?:number,
     previousLabel?:string,
     currentDirection?:boolean,
+    stars?:number
   }
   

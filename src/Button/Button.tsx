@@ -17,8 +17,8 @@ const StyledButton = styled.button<ButtonProps>`
       : props.size === 'medium'
       ? '9px 30px 11px'
       : '14px 30px 16px'};
-  color: ${(props) => (props.primary ? '#1b116e' : 'green')};
-  background-color: ${(props) => (props.primary ? '#6bedb5' : '#1b116e')};
+  color: ${(props) => (props.primary ? '#FFFFFF' : '#4A90E2')};
+  background-color: ${(props) => (props.primary ? '#4A90E2' : '#F2F6FD')};
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   &:hover {
     //   background-color: ${(props) =>
@@ -34,7 +34,6 @@ const StyledButton = styled.button<ButtonProps>`
         ? '7px 28px 9px'
         : '12px 28px 14px'};
   }
-  color: black;
 `;
 
 const Button: FC<ButtonProps> = ({
@@ -42,7 +41,6 @@ const Button: FC<ButtonProps> = ({
   primary,
   disabled,
   text,
-  theme,
   onClick,
   ...props
 }) => {
