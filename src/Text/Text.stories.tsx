@@ -1,29 +1,18 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import Text  from './Text';
-import {TextProps} from "./Text.types"
+import Text from './Text';
+import { TextProps } from './Text.types';
 import { storiesOf } from '@storybook/react';
 
 export default {
   title: 'Dashboard/Text',
   component: Text,
-  // controls: {
-  //   presetColors: [{ color: '#ff4785', title: 'Coral' }, 'rgba(0, 159, 183, 1)', '#fe4a49'],
-  // },
-  argTypes: {
-    // themify:{
-    //   options: themeNames,
-    //   control: { type: 'radio' },
-    //   mapping: themes
-    // }
-  },
- 
+  argTypes: {},
 } as Meta<typeof Text>;
 
 const Template: Story<TextProps> = (args) => <Text {...args} />;
-storiesOf('Text', module)
-
+storiesOf('Text', module);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -35,37 +24,38 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   primary: false,
   disabled: false,
-
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   primary: false,
   disabled: true,
-
 };
 
 export const Small = Template.bind({});
 Small.args = {
   primary: true,
   disabled: false,
-  size:"small",
-
+  size: 'small',
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
   primary: true,
   disabled: false,
-  size:"medium",
-
-
+  size: 'medium',
 };
 
 export const Large = Template.bind({});
 Large.args = {
   primary: true,
   disabled: false,
-  size:"large",
+  size: 'large',
 };
-Primary.decorators = [(Story) => <div style={{ display: 'flex', margin: 'auto' }}><Story /></div>]
+Primary.decorators = [
+  (Story) => (
+    <div style={{ display: 'flex', margin: 'auto' }}>
+      <Story />
+    </div>
+  ),
+];

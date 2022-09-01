@@ -76,7 +76,8 @@
     "@storybook/addon-docs": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-postcss": "^3.0.0-alpha.1",
-    "@storybook/builder-webpack5": "^6.5.9"
+    "@storybook/builder-webpack5": "^6.5.9",
+    "path": "^0.12.7"
   },
   "readme": "ERROR: No README data found!",
   "_id": "simplr-storybook-library@2.0.0"
