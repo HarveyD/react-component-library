@@ -33,7 +33,7 @@ export default {
       targets: [
         {
           src: "src/index.css",
-          dest: "build",
+          dest: "dist",
           rename: "index.css"
         }
       ]

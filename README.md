@@ -128,13 +128,13 @@ Then update the `name` field in `package.json` to reflect your NPM package name 
 npm publish
 ```
 
-The `"prepublishOnly": "npm run build"` script in `package.json` will execute before publish occurs, ensuring the `build/` directory and the compiled component library exist.
+The `"prepublishOnly": "npm run build"` script in `package.json` will execute before publish occurs, ensuring the `dist/` directory and the compiled component library exist.
 
 ### Hosting via GitHub
 
 I recommend you host the component library using NPM. However, if you don't want to use NPM, you can use GitHub to host it instead.
 
-You'll need to remove `build/` from `.gitignore`, build the component library (`npm run build`), add, commit and push the contents of `build`. [See this branch for an example.](https://github.com/HarveyD/react-component-library/tree/host-via-github)
+You'll need to remove `dist/` from `.gitignore`, build the component library (`npm run build`), add, commit and push the contents of `dist`. [See this branch for an example.](https://github.com/HarveyD/react-component-library/tree/host-via-github)
 
 You can then install your library into other projects by running:
 
@@ -157,7 +157,7 @@ Let's say you created a public NPM package called `harvey-component-library` wit
 First, you'll need to import the `index.css` CSS file distributed by the package. This should be done at the root of your project (in `index.js` or `App.tsx` of your React app) and will look like:
 
 ```tsx
-import 'harvey-component-library/build/index.css';
+import 'harvey-component-library/dist/index.css';
 
 ...
 ```
@@ -236,7 +236,7 @@ Code splitting of your components is not supported by default.
 [Read this section of my blog post](https://blog.harveydelaney.com/creating-your-own-react-component-library/#introducing-code-splitting-optional-) to find out how and why you would enable code splitting of your components. In summary, code splitting enables users to import components in isolation like:
 
 ```
-import TestComponent from 'harvey-component-library/build/TestComponent';
+import TestComponent from 'harvey-component-library/dist/TestComponent';
 ```
 
 This can reduce the bundle size for projects using older (CJS) module formats.

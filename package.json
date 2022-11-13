@@ -1,12 +1,12 @@
 {
   "name": "react-component-library",
   "version": "1.0.0",
-  "main": "build/index.js",
-  "module": "build/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
   "files": [
-    "build"
+    "dist"
   ],
-  "types": "build/index.d.ts",
+  "types": "dist/index.d.ts",
   "description": "A skeleton to create your own React component library using Rollup, TypeScript, Sass and Storybook",
   "scripts": {
     "build": "rollup -c",
