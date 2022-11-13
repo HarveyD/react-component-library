@@ -6,8 +6,8 @@
 This project skeleton was created to help people get started with creating their own React component library using:
 
 - [Rollup](https://github.com/rollup/rollup)
-- [Sass](https://sass-lang.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- ~~Sass~~ (This dependency has been removed, see [Using CSS Preprocessors](#using-css-preprocessors) on how to support it)
 
 It also features:
 
@@ -65,7 +65,7 @@ This will generate:
     YourComponentName.stories.tsx
     YourComponentName.test.tsx
     YourComponentName.types.ts
-    YourComponentName.scss
+    YourComponentName.css
 ```
 
 The default templates for each file can be modified under `util/templates`.
@@ -152,7 +152,19 @@ npm i --save github:harveyd/react-component-library#branch-name
 
 Let's say you created a public NPM package called `harvey-component-library` with the `TestComponent` component created in this repository.
 
-Usage of the component (after the library installed as a dependency into another project) will be:
+### Stylesheet
+
+First, you'll need to import the `index.css` CSS file distributed by the package. This should be done at the root of your project (in `index.js` or `App.tsx` of your React app) and will look like:
+
+```tsx
+import 'harvey-component-library/build/index.css';
+
+...
+```
+
+### Components
+
+Usage of components (after the library installed as a dependency into another project) will look like:
 
 ```TSX
 import React from "react";
@@ -161,7 +173,7 @@ import { TestComponent } from "harvey-component-library";
 const App = () => (
   <div className="app-container">
     <h1>Hello I'm consuming the component library</h1>
-    <TestComponent theme="primary" />
+    <TestComponent heading={'Some heading'} content={<div>Some content</div>} />
   </div>
 );
 
@@ -172,17 +184,9 @@ export default App;
 
 ### Using Component Library CSS Variables
 
-I've found that it's helpful to export CSS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the [`src/typography.css`](src/typography.css) and [`variables.css`](src/variables.css) into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
+Above we imported `index.css` into the root of our project. `index.css` contains a number of CSS variables that can be used across the project that consumes our component library.
 
-For example, let's say you installed `harvey-component-library` into your project. To use the exported variables/mixins, first import the `variables.css` file into the root file of your app (like in App.tsx):
-
-```tsx
-import 'harvey-component-library/build/variables.css';
-
-...
-```
-
-Then in your CSS, you can now use the variables defined in `variables.css` like:
+In your CSS, you can use the variables defined in `variables.css` like:
 
 ```CSS
 .example-container {
@@ -191,26 +195,25 @@ Then in your CSS, you can now use the variables defined in `variables.css` like:
 }
 ```
 
+See: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties for more information about CSS Variables.
+
 ## Additional Help
 
 ### Dark Mode
 
 The example component `TestComponent` respects the user's dark mode operating system preferences and renders the component in the appropriate theme.
 
-This is achieved by using the media query: `@media (prefers-color-scheme: dark)` in combination with CSS variables. The colours that change depending on dark mode preference can be found in [`src/variables.scss`](src/variables.scss). Example usage of these variables can be found within [`src/TestComponent/TestComponent.scss`](src/TestComponent/TestComponent.scss).
+This is achieved by using the media query: `@media (prefers-color-scheme: dark)` in combination with CSS variables. The colours that change depending on dark mode preference can be found in [`src/index.css`](src/index.css). Example usage of these variables can be found within [`src/TestComponent/TestComponent.css`](src/TestComponent/TestComponent.css).
 
 Read https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme for more details.
 
-### Using Alternatives to Sass
+### Using CSS Preprocessors
 
-#### Less or Stylus
+The Rollup plugin [`rollup-plugin-postcss`](https://github.com/egoist/rollup-plugin-postcss) supports Sass, Less and Stylus:
 
-The Rollup plugin `rollup-plugin-postcss` supports Sass, Less and Stylus:
-
+- For Sass, install less: `yarn add node-sass --dev`
 - For Stylus, install stylus: `yarn add stylus --dev`
 - For Less, install less: `yarn add less --dev`
-
-You can then remove `node-sass` from your dependencies.
 
 #### CSS Modules
 
