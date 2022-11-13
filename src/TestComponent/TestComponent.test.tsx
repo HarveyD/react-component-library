@@ -25,7 +25,7 @@ describe("TestComponent", () => {
 
   it("should render content correctly", () => {
     const { getByTestId } = renderComponent({
-      content: <div data-testid="some-test-content">I am test content</div>
+      content: <div data-testid="some-test-content">I am test content</div>,
     });
 
     expect(
@@ -33,5 +33,10 @@ describe("TestComponent", () => {
         "some-test-content"
       )
     ).toBeInTheDocument();
+    expect(
+      within(getByTestId("test-component__content")).queryByTestId(
+        "some-test-content"
+      )
+    ).toHaveTextContent("I am test content");
   });
 });
