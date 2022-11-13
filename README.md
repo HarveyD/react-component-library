@@ -170,19 +170,24 @@ export default App;
 
 [Check out this Code Sandbox for a live example.](https://codesandbox.io/s/harvey-component-library-example-y2b60?file=/src/App.js)
 
-### Using Component Library SASS Variables
+### Using Component Library CSS Variables
 
-I've found that it's helpful to export SASS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the [`src/typography.scss`](src/typography.scss) and [`variables.scss`](src/variables.scss) into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
+I've found that it's helpful to export CSS variables to projects consuming the library. As such, I've added the `rollup-plugin-copy` NPM package and used it to copy the [`src/typography.css`](src/typography.css) and [`variables.css`](src/variables.css) into the `build` directory as part of the Rollup bundle process. This allows you to use these variables in your projects consuming the component library.
 
-For example, let's say you installed `harvey-component-library` into your project. To use the exported variables/mixins, in a SASS file you would do the following:
+For example, let's say you installed `harvey-component-library` into your project. To use the exported variables/mixins, first import the `variables.css` file into the root file of your app (like in App.tsx):
 
-```Sass
-@import '~harvey-component-library/build/typography';
+```tsx
+import 'harvey-component-library/build/variables.css';
 
+...
+```
+
+Then in your CSS, you can now use the variables defined in `variables.css` like:
+
+```CSS
 .example-container {
-    @include heading;
-
-    color: $harvey-white;
+    color: var(--harvey-white);
+    background-color: var(--harvey-black);
 }
 ```
 
