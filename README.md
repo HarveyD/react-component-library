@@ -70,8 +70,6 @@ This will generate:
 
 The default templates for each file can be modified under `util/templates`.
 
-Don't forget to add the component to your `index.ts` exports if you want the library to export the component!
-
 ### Installing Component Library Locally
 
 Let's say you have another project (`test-app`) on your machine that you want to try installing the component library into without having to first publish the component library. In the `test-app` directory, you can run:
