@@ -13,18 +13,18 @@ export default {
     {
       file: packageJson.main,
       format: "cjs",
-      sourcemap: true
+      sourcemap: true,
     },
     {
       file: packageJson.module,
       format: "esm",
-      sourcemap: true
-    }
+      sourcemap: true,
+    },
   ],
   plugins: [
     peerDepsExternal(),
     resolve({
-      browser: true
+      browser: true,
     }),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
@@ -34,9 +34,9 @@ export default {
         {
           src: "src/index.css",
           dest: "build",
-          rename: "index.css"
-        }
-      ]
-    })
-  ]
+          rename: "index.css",
+        },
+      ],
+    }),
+  ],
 };

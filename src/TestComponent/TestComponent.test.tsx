@@ -1,8 +1,7 @@
 import React from "react";
 import { render, within } from "@testing-library/react";
 
-import TestComponent from "./TestComponent";
-import { TestComponentProps } from "./TestComponent.types";
+import TestComponent, { TestComponentProps } from "./TestComponent";
 
 describe("TestComponent", () => {
   const renderComponent = ({ heading, content }: Partial<TestComponentProps>) =>
@@ -25,7 +24,7 @@ describe("TestComponent", () => {
 
   it("should render content correctly", () => {
     const { getByTestId } = renderComponent({
-      content: <div data-testid="some-test-content">I am test content</div>
+      content: <div data-testid="some-test-content">I am test content</div>,
     });
 
     expect(

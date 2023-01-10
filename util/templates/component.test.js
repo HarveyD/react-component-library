@@ -1,17 +1,15 @@
 module.exports = (componentName) => ({
-  content: `// Generated with util/create-component.js
-import React from "react";
+  content: `import React from "react";
 import { render } from "@testing-library/react";
 
-import ${componentName} from "./${componentName}";
-import { ${componentName}Props } from "./${componentName}.types";
+import ${componentName}, { ${componentName}Props } from "./${componentName}";
 
 describe("Test Component", () => {
   let props: ${componentName}Props;
 
   beforeEach(() => {
     props = {
-      foo: "bar"
+      foo: "bar",
     };
   });
 
@@ -27,5 +25,5 @@ describe("Test Component", () => {
   });
 });
 `,
-  extension: `.test.tsx`
+  extension: `.test.tsx`,
 });
